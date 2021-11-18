@@ -1,0 +1,170 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   globals.scss                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hasuzuki <hasuzuki@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/18 20:17:23 by hasuzuki          #+#    #+#             */
+/*   Updated: 2021/11/18 22:04:55 by hasuzuki         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+// Develop Settings
+$sizes: sm, md, lg, xl;
+
+$breakpoint: (
+	'sm': 'screen and (min-width: 640px)',// 	640px ~ 	width(iPhone)
+	'md': 'screen and (min-width: 768px)',//	768px ~  	width(iPad)
+	'lg': 'screen and (min-width: 1024px)',// 	1024px ~ 	width(iPad Pro) height(iPad)
+	'xl': 'screen and (min-width: 1280px)',//	1280px ~ 	width(HD)
+) !default;
+
+@mixin media-queries($size) {
+	@media #{map-get($breakpoint, $size)} {// 第一引数->変数breakpoint-up, 第二引数->includeから受け取ったパラメータ
+		@content;
+	}
+}
+
+@import 'modules/_header';
+@import 'modules/_footer';
+@import 'modules/_reset';
+
+@mixin responsive-width {// Screen Size Settings
+	@include media-queries('sm') { max-width: 640px; }
+	@include media-queries('md') { max-width: 768px; }
+	@include media-queries('lg') { max-width: 1024px; }
+	@include media-queries('xl') { max-width: 1280px; }
+}
+
+// Container
+.container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 15px;
+	box-sizing: border-box;
+	@include responsive-width;
+}
+
+// Site Original Styles
+.site-logo {
+	margin: 0;
+	line-height: 1.15;
+	font-size: 4rem;
+	font-weight: bold;
+	color: #0070f3;
+	text-decoration: none;
+	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.title {
+	font-size: 4rem;
+	margin: 0;
+	line-height: 1.15;
+}
+
+.description {
+  font-size: 1.5rem;
+  margin: 4rem 0;
+  line-height: 1.5;
+}
+
+.title, .description {
+	text-align: center;
+}
+
+.editor-topbar {
+	width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+	padding: 5px;
+	border-radius: 3px;
+	background: #000;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: flex-start;
+	&__item {
+		padding: 3px;
+		border: solid 1px #fff;
+		cursor: pointer;
+		i {
+			font-size: 20px;
+			color: #fff;
+		}
+		&:hover {
+			box-shadow: 0 0 10px #fff;
+			transition-duration: .2s;
+		}
+	}
+}
+
+code {
+	background: #fafafa;
+	border-radius: 5px;
+	padding: 0.75rem;
+	font-size: 1.1rem;
+	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+textarea {
+	width: 100%;
+	min-height: 400px;
+	padding: 20px 14px;
+	border: solid 2px #888;
+	border-radius: 1rem;
+	box-sizing: border-box;
+}
+
+main {
+	min-height: 100vh;
+	padding: 4rem 0;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+.grid {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	max-width: 800px;
+	@include media-queries('sm') {
+		.grid {
+		  width: 100%;
+		  flex-direction: column;
+		}
+	}
+}
+
+.card {
+	margin: 1rem;
+	padding: 1.5rem;
+	text-align: left;
+	color: inherit;
+	text-decoration: none;
+	border: 1px solid #eaeaea;
+	border-radius: 10px;
+	transition: color 0.15s ease, border-color 0.15s ease;
+	max-width: 300px;
+	&:hover,
+	&:focus,
+	&:active {
+		color: #0070f3;
+		border-color: #0070f3;
+	}
+	h2 {
+		margin: 0 0 1rem 0;
+		font-size: 1.5rem;
+	}
+	p {
+		font-size: 1.25rem;
+		line-height: 1.5;
+		margin: 0;
+	}
+}
