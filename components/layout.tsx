@@ -74,7 +74,7 @@ const Layout: NextPage<PageInfo> = ({ children, type, robots, title, description
 				{/* Google Fonts */}
 				
 				{/* Font Awesome CDN */}
-				<script src="https://kit.fontawesome.com/d07ecbe7fa.js" crossOrigin="anonymous" />
+				<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossOrigin="anonymous" />
 			</Head>
 
 			<Header />

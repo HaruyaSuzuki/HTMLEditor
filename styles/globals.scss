@@ -6,7 +6,7 @@
 /*   By: hasuzuki <hasuzuki@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:17:23 by hasuzuki          #+#    #+#             */
-/*   Updated: 2021/11/18 22:04:55 by hasuzuki         ###   ########.fr       */
+/*   Updated: 2021/11/20 05:47:11 by hasuzuki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ $breakpoint: (
 	text-align: center;
 }
 
-.editor-topbar {
+#toolbar {
 	width: 100%;
 	height: auto;
 	margin-bottom: 10px;
@@ -83,19 +83,59 @@ $breakpoint: (
 	box-sizing: border-box;
 	display: flex;
 	justify-content: flex-start;
-	&__item {
-		padding: 3px;
-		border: solid 1px #fff;
+	.toolbar_item {
+		width: 26px;
+		height: 26px;
+		background: #fff;
+		border: none;
 		cursor: pointer;
+		position: relative;
 		i {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 			font-size: 20px;
-			color: #fff;
+			position: absolute;
+		}
+		input[type="file"] {
+			display: none;
 		}
 		&:hover {
-			box-shadow: 0 0 10px #fff;
+			border: solid 1px #fff;
 			transition-duration: .2s;
 		}
 	}
+}
+
+#editor, #output {
+	width: 100%;
+	padding: 20px 14px;
+	border: solid 2px #888;
+	border-radius: 1rem;
+	box-sizing: border-box;
+}
+
+#editor {
+	min-height: 400px;
+	margin-bottom: 20px;
+}
+
+#output {
+	display: none;
+	margin-bottom: 100px;
+}
+
+button {
+	&.get_html, &.get_text, &.get_json, &.change_css {
+		width: 150px;
+		height: 36px;
+		color: #fff;
+		background: #000;
+		margin-bottom: 100px;
+		border: none;
+		cursor: pointer;
+	}
+	&:not(:last-child) { margin-right: 10px; }
 }
 
 code {
@@ -103,16 +143,6 @@ code {
 	border-radius: 5px;
 	padding: 0.75rem;
 	font-size: 1.1rem;
-	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-textarea {
-	width: 100%;
-	min-height: 400px;
-	padding: 20px 14px;
-	border: solid 2px #888;
-	border-radius: 1rem;
-	box-sizing: border-box;
 }
 
 main {
