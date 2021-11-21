@@ -52,16 +52,16 @@ const CreatePage: NextPage = () => {
 		}
 		else return null;
 	}
-	const toolImage = (): void => {
-		const file: any = document.getElementById("file")!.files[0];// document.querySelector("input[type=file]")がnull出ない時に取得したいので「!」をつける。
+	const toolImage = (value: any): void => {
+		const editor: HTMLElement = document.getElementById('editor')!;
+		const file: any = value[0];
 		const reader: FileReader = new FileReader();
 		let dataURI: string | ArrayBuffer;
-		const editor: HTMLElement = document.getElementById('editor')!;
 
 		reader.addEventListener(
 			"load",
 			() => {
-				const img = document.createElement("img");
+				const img: HTMLImageElement = document.createElement("img");
 				dataURI = reader.result!;
 				img.src = String(dataURI);
 				editor.appendChild(img);
@@ -123,7 +123,7 @@ const CreatePage: NextPage = () => {
 					<button className="toolbar_item" onClick={ toolLink }><i className="fas fa-link" /></button>
 					<button className="toolbar_item" onClick={ toolColor }><i className="fas fa-palette" /></button>
 					<button className="toolbar_item" onClick={ toolCode }><i className="fas fa-code" /></button>
-					<label className="toolbar_item"><i className="fas fa-image" /><input className="toolbar_item" type="file" accept="image/*" id="file" onChange={ toolImage } /></label>
+					<label className="toolbar_item"><i className="fas fa-image" /><input className="toolbar_item" type="file" accept="image/*" id="file" onChange={ e => toolImage(e.target.files) } /></label>
 				</div>
 
 				<div id="editor" className={ styles.editor } contentEditable />
