@@ -1,7 +1,10 @@
-.editor {
-	background-color: red;
-}
+.editor {}
 
 .editor h1 {
 	font-size: 3rem;
+}
+
+.editor img {
+	width: 100%;
+	height: auto;
 }
