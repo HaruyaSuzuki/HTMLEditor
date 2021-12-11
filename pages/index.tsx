@@ -103,7 +103,7 @@ const Home: NextPage = () => {
         <main>
           <h1 className="title">Welcome to <span className="site-logo black">HTML Editor</span>!</h1>
           <p className="description">
-            Let's change text to HTML.
+            Let&apos;s change text to HTML.
             <code>&lt;h1&gt;HTML Editor&lt;/h1&gt;</code>
           </p>
         </main>
