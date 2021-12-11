@@ -6,7 +6,7 @@
 /*   By: hasuzuki <hasuzuki@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:17:23 by hasuzuki          #+#    #+#             */
-/*   Updated: 2021/11/20 05:47:11 by hasuzuki         ###   ########.fr       */
+/*   Updated: 2021/12/11 09:08:56 by hasuzuki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,13 @@ $breakpoint: (
 .site-logo {
 	margin: 0;
 	line-height: 1.15;
-	font-size: 4rem;
 	font-weight: bold;
-	color: #0070f3;
+	color: #ffffff;
 	text-decoration: none;
 	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+	&.black {
+		color: #000;
+	}
 }
 
 .title {
@@ -146,13 +148,7 @@ code {
 }
 
 main {
-	min-height: 100vh;
-	padding: 4rem 0;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	padding-top: 16vh;
 }
 
 

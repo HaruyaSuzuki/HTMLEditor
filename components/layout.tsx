@@ -7,8 +7,8 @@ import { NextPage } from "next";
 import { ReactNode } from "react";
 
 // Original
-import Header from '../components/_header';
-import Footer from '../components/_footer';
+import Header from './_header';
+import Footer from './_footer';
 
 interface PageInfo {
 	children: ReactNode;
